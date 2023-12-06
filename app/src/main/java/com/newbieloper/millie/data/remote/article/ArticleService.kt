@@ -1,6 +1,5 @@
 package com.newbieloper.millie.data.remote.article
 
-import com.newbieloper.millie.data.remote.article.model.ArticleListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

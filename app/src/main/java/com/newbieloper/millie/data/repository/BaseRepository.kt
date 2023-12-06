@@ -1,7 +1,8 @@
-package com.newbieloper.millie.data.remote
+package com.newbieloper.millie.data.repository
 
 import com.google.gson.Gson
 import com.newbieloper.millie.data.Result
+import com.newbieloper.millie.data.remote.ErrorBody
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

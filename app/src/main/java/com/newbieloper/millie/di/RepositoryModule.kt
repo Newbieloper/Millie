@@ -1,7 +1,7 @@
 package com.newbieloper.millie.di
 
-import com.newbieloper.millie.data.remote.article.ArticleRepository
-import com.newbieloper.millie.data.remote.article.ArticleRepositoryImpl
+import com.newbieloper.millie.data.repository.article.ArticleRepository
+import com.newbieloper.millie.data.repository.article.ArticleRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

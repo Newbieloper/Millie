@@ -50,7 +50,7 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="40dp"
                 android:text="@{article.title}"
-                android:textColor="@color/colorWhite"
+                android:textColor="@{article.isRead ? @color/color_FFFF0000 : @color/colorWhite}"
                 android:textSize="24dp"
                 tools:text="Title" />
 

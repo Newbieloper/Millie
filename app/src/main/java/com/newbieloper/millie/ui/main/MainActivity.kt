@@ -60,7 +60,7 @@ class MainActivity : DataBindingActivity<ActivityMainBinding>(R.layout.activity_
             articleListAdapter = ArticleListAdapter(
                 object : ArticleViewHolder.OnItemClickListener {
                     override fun onClick(article: Article) {
-
+                        viewModel.readArticle(article)
                     }
                 }
             )
