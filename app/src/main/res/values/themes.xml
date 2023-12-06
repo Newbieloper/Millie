@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.Millie" parent="Base.Theme.Millie" />
+
+    <!-- Splash -->
+    <style name="Theme.App.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.Millie</item>
+    </style>
 </resources>
