@@ -15,6 +15,7 @@ import com.newbieloper.millie.databinding.ActivityMainBinding
 import com.newbieloper.millie.ui.main.adapter.ArticleListAdapter
 import com.newbieloper.millie.ui.main.adapter.ArticleViewHolder
 import com.newbieloper.millie.ui.main.model.Article
+import com.newbieloper.millie.ui.web.WebActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -61,6 +62,7 @@ class MainActivity : DataBindingActivity<ActivityMainBinding>(R.layout.activity_
                 object : ArticleViewHolder.OnItemClickListener {
                     override fun onClick(article: Article) {
                         viewModel.readArticle(article)
+                        navigateToWeb(article.url)
                     }
                 }
             )
@@ -82,6 +84,12 @@ class MainActivity : DataBindingActivity<ActivityMainBinding>(R.layout.activity_
                     articleListAdapter.submitList(it)
                 }
             }
+        }
+    }
+
+    fun navigateToWeb(url: String) {
+        WebActivity.getIntent(this@MainActivity, url).run {
+            startActivity(this)
         }
     }
 }
