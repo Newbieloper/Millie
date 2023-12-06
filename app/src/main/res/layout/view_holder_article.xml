@@ -2,7 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="SpUsage">
 
     <data>
 
@@ -36,25 +37,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 bind:glide_centerCrop="@{true}"
-                bind:glide_url="@{article.urlToImage}" />
+                bind:glide_url="@{article.urlToImage}"
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:background="@drawable/gradient_linear_black_50_to_0"
+                android:ellipsize="end"
                 android:includeFontPadding="false"
+                android:maxLines="2"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="40dp"
                 android:text="@{article.title}"
-                android:textColor="@color/colorBlack" />
+                android:textColor="@color/colorWhite"
+                android:textSize="24dp"
+                tools:text="Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_margin="20dp"
+                android:background="@drawable/gradient_linear_black_0_to_40"
                 android:gravity="end"
                 android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
                 android:text="@{article.publishedAtString}"
-                android:textColor="@color/colorBlack" />
+                android:textColor="@color/colorWhite"
+                android:textSize="12dp"
+                tools:text="yyyy.MM.dd a h:mm" />
 
         </com.google.android.material.card.MaterialCardView>
 
