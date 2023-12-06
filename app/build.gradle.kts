@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -5,6 +8,9 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
+
+val keyPropertiesFile = rootProject.file("key.properties")
+val keyProperties = Properties().apply { load(FileInputStream(keyPropertiesFile)) }
 
 android {
     namespace = "com.newbieloper.millie"
@@ -18,6 +24,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        (keyProperties["API_KEY"] as? String)?.let {
+            buildConfigField("String", "API_KEY", it)
+        }
     }
 
     buildTypes {
