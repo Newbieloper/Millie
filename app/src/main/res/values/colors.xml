@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FF000000</color>
+    <color name="colorPrimaryVariant">#80000000</color>
+    <color name="colorOnPrimary">#FFFFFFFF</color>
+
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorBlack_A20">#33000000</color>
+    <color name="colorBlack_A30">#4D000000</color>
+    <color name="colorBlack_A50">#80000000</color>
+
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorWhite_A20">#33FFFFFF</color>
+    <color name="colorWhite_A30">#4DFFFFFF</color>
+    <color name="colorWhite_A50">#80FFFFFF</color>
+    <color name="colorWhite_A95">#F2FFFFFF</color>
+
+    <color name="color_FFDCDFE3">#FFDCDFE3</color>
 </resources>
