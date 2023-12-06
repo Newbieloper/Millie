@@ -1,7 +1,9 @@
 package com.newbieloper.millie.data.repository.article
 
+import com.bumptech.glide.RequestManager
 import com.google.gson.Gson
 import com.newbieloper.millie.BuildConfig
+import com.newbieloper.millie.core.extension.cacheImage
 import com.newbieloper.millie.data.Result
 import com.newbieloper.millie.data.local.article.ArticleDao
 import com.newbieloper.millie.data.remote.article.ArticleService
@@ -25,13 +27,13 @@ class ArticleRepositoryImpl @Inject constructor(
     gson: Gson,
     private val articleService: ArticleService,
     private val articleDao: ArticleDao,
+    private val requestManager: RequestManager,
 ) : BaseRepository(ioDispatcher, gson), ArticleRepository {
 
     override suspend fun getTopHeadlineArticleList(): Flow<List<Article>> {
         return try {
             callToFlow(articleService.getTopHeadlineArticleList("kr", BuildConfig.API_KEY)).flatMapLatest { result ->
                 flowOf(withContext(ioDispatcher) {
-
                     when (result) {
                         is Result.Success -> {
                             // 정상적으로 호출 성공 시 DB에 기록 후 데이터 방출
@@ -39,6 +41,10 @@ class ArticleRepositoryImpl @Inject constructor(
                                 // 읽음 처리 이후 DB에 기록
                                 val localReadArticleList = articleDao.getArticleList().map { it.toArticle() }.filter { it.isRead }
                                 val remoteArticleList = response.articleList.map { entity ->
+
+                                    // 이미지 캐싱
+                                    requestManager.cacheImage(entity.url)
+
                                     return@map if (localReadArticleList.any { it.url == entity.url && it.isRead }) {
                                         entity.copy(isRead = true)
                                     } else {
