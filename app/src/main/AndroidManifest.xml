@@ -7,6 +7,7 @@
     <!-- endregion Permission -->
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,9 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millie"
-        tools:targetApi="31">
+        tools:targetApi="33">
+
+        <!-- region Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Splash">
             <intent-filter>
@@ -26,6 +29,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- endregion Activity -->
+
+        <!-- region Provider -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.newbieloper.millie.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.newbieloper.millie.core.initializer.TimberInitializer"
+                android:value="androidx.startup" />
+        </provider>
+        <!-- endregion Provider -->
     </application>
 
 </manifest>
