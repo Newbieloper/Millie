@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
@@ -39,7 +40,11 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         dataBinding = true
+    }
+    kapt {
+        correctErrorTypes = true
     }
 }
 
