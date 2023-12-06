@@ -69,8 +69,15 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    val lifecycle_version = "2.6.2"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    val room_version = "2.5.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 
     implementation("androidx.startup:startup-runtime:1.1.1")
     // endregion AndroidX
@@ -78,8 +85,9 @@ dependencies {
     // region Google
     implementation("com.google.android.material:material:1.9.0")
 
-    implementation("com.google.dagger:hilt-android:2.48")
-    ksp("com.google.dagger:hilt-android-compiler:2.48")
+    val hilt_version = "2.48"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    ksp("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
@@ -93,12 +101,14 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor")
 
     /* Retrofit - https://github.com/square/retrofit */
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    val retrofit_version = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
     /* Glide - https://github.com/bumptech/glide */
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    ksp("com.github.bumptech.glide:compiler:4.16.0")
+    val glide_version = "4.16.0"
+    implementation("com.github.bumptech.glide:glide:$glide_version")
+    ksp("com.github.bumptech.glide:compiler:$glide_version")
 
     /* Timber - https://github.com/JakeWharton/timber */
     implementation("com.jakewharton.timber:timber:5.0.1")
